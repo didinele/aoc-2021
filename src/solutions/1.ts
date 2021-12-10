@@ -1,7 +1,7 @@
-import { combine, mapNumber, readInput, readNewline } from '../util';
+import { readNumbers } from '../util';
 
 export function solve1() {
-	const inputs = readInput(1, combine(readNewline, mapNumber));
+	const inputs = readNumbers(1);
 
 	return inputs.reduce<{ increased: number; num: number }>(
 		(acc, x) => {
@@ -20,7 +20,7 @@ export function solve1() {
 }
 
 export function solve2() {
-	const inputs = readInput(1, combine(readNewline, mapNumber));
+	const inputs = readNumbers(1);
 
 	let increased = 0;
 	let prev: number | null = null;

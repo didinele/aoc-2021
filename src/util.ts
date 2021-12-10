@@ -1,16 +1,15 @@
 import { readFileSync } from 'fs';
 
-export function combine<T>(...fs: [...Array<(x: any) => any>, (x: any) => T]): (x: any) => T {
-	return (x) => fs.reduce((y, f) => f(y), x);
-}
+export type Lambda<RT, Ts extends any[]> = (...args: Ts) => RT;
 
-export function readInput(day: number): string;
-export function readInput<T>(day: number, apply: (input: string) => T): T;
-export function readInput<T = string>(day: number, apply?: (input: string) => T): T | string {
-	const input = readFileSync(`./inputs/${day}.txt`, 'utf8');
-	return apply?.(input) ?? input;
-}
+export const combineLambdas =
+	<T, RT>(...fs: [Lambda<any, [T]>, ...Lambda<any, [any]>[], Lambda<RT, [any]>]): ((x: T) => RT) =>
+	(x) =>
+		fs.reduce((y, f) => f(y), x) as unknown as RT;
 
+export const readInput = (day: number) => readFileSync(`./inputs/${day}.txt`, 'utf8');
 export const readNewline = (input: string) => input.split('\n');
+export const mapNumbers = (input: string[]) => input.map(Number);
 
-export const mapNumber = (input: string[]) => input.map(Number);
+export const readLines = combineLambdas(readInput, readNewline);
+export const readNumbers = combineLambdas(readLines, mapNumbers);
