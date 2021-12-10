@@ -3,7 +3,7 @@ import { performance } from 'perf_hooks';
 const args = process.argv.slice(2, 4) as [string?, string?];
 
 if (args.length !== 2) {
-	throw new Error('Usage: node ./dist/index.js <day> <part>');
+	throw new Error('Usage: node --es-module-specifier-resolution=node ./dist/index.js <day> <part>');
 }
 
 const [day, part] = args.map(Number) as [number, 1 | 2];
