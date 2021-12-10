@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json.schemastore.org/package",
+  "name": "aoc",
+  "version": "0.1.0",
+  "description": "Advent of code 2021 solutions",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didinele/aoc.git"
+  },
+  "author": "didinele",
+  "bugs": {
+    "url": "https://github.com/didinele/aoc/issues"
+  },
+  "homepage": "https://github.com/didinele/aoc#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-marine": "^9.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.2.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.tsx": [
+      "eslint --fix"
+    ]
+  }
+}
