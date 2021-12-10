@@ -2,8 +2,8 @@
 
 ## Usage
 
-The input for each day should be added to the `inputs/` directory. The solutions
-for each day are stored in the corresponding day in the `src/solutions/` directory.
+The input for each day can be found in the `inputs/` directory. The solutions
+for each day are stored in the corresponding day file in the `src/solutions/` directory.
 
 [pnpm](https://pnpm.io/) is required for usage.
 
