@@ -13,3 +13,13 @@ export const mapNumbers = (input: string[]) => input.map(Number);
 
 export const readLines = combineLambdas(readInput, readNewline);
 export const readNumbers = combineLambdas(readLines, mapNumbers);
+
+export const range = (start: number, end: number): number[] => {
+	const arr: number[] = [];
+
+	for (let i = start; i < end; i++) {
+		arr.push(i);
+	}
+
+	return arr;
+};
